@@ -38,7 +38,7 @@
     chdir: /app
 
 - name: copy the backend service file
-  ansible.builtin.teplate:
+  ansible.builtin.template:
     src: backend.service.j2
     dest: /etc/systemd/system/backend.service
 
