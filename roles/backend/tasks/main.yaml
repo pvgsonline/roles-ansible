@@ -17,9 +17,9 @@
     name: expense
 
 - name: import tasks from common role
-  ansible.builtin.import_role:
   tags:
   - deployment
+  ansible.builtin.import_role:
     name: common
     tasks_from: app-pre-req
 
