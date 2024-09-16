@@ -18,10 +18,14 @@
 
 - name: import tasks from common role
   ansible.builtin.import_role:
+  tags:
+  - deployment
     name: common
     tasks_from: app-pre-req
 
 - name: download the dependency
+  tags:
+  - deployment
   ansible.builtin.command: npm install
   args:
     chdir: /app
@@ -48,6 +52,8 @@
     target: /app/schema/backend.sql
 
 - name: daemon reload
+  tags:
+  - deployment
   ansible.builtin.systemd_service:
     state: restarted
     name: backend
